@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            margin: auto;
+        }
+
+        .wb {
+            color: white;
+            /* display: inline-block; */
+            margin: 100px auto;
+            width: 400px;
+            height: 160px;
+            /* width: fit-content;
+            height: fit-content; */
+            background-color: black;
+        }
+
+        ul {
+            display: flex;
+            /* flex-wrap: wrap; */
+            align-content: space-around;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+
+        ul li {
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+            line-height: 60px;
+            list-style: none;
+            background-color: red;
+            width: 60px;
+            height: 60px;
+
+        }
+
+        span {
+            line-height: 120px;
+        }
+
+        .news {
+            margin: auto;
+
+            color: black;
+            /* display: inline-block; */
+            background-color: greenyellow;
+            width: 228px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wb w"><strong style="margin-left: 100px; ">距离暑假放假还有</strong>
+
+        <ul>
+            <li class="day"></li>
+            <span>天</span>
+            <li class="hour"></li>
+            <span>时</span>
+            <li class="minute"></li>
+            <span>分</span>
+            <li class="second"></li>
+            <span>秒</span>
+        </ul>
+        <div class="news">当前时间为</div>
+    </div>
+    <script>
+        var Day = document.querySelector('.day');
+        var Hour = document.querySelector('.hour');
+        var Min = document.querySelector('.minute');
+        var S = document.querySelector('.second');
+        var input_time = +new Date('2024-01-15 01:00:00');
+        //当前时间
+        var news = document.querySelector('.news');
+        coutDown();
+        setInterval(coutDown, 1000);
+        function getDate() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var mouth = date.getMonth() + 1;
+            var dates = date.getDate();
+            var arr = ['星期日', '星期一', '星期二', '星期四', '星期五', '星期六'];
+            var day = date.getDay();
+            return '今天是:' + year + '年' + mouth + '月' + dates + '日' + arr[day];
+        }
+        news.innerHTML = getDate();
+
+        function coutDown() {
+            nowtime = +new Date();
+            console.log(nowtime);
+
+            var times = (nowtime -  input_time) / 1000;
+
+            var d = parseInt(times / 60 / 60 / 24);
+            d = d < 10 ? '0' + d : d;
+            Day.innerHTML = d;
+
+            var h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            Hour.innerHTML = h;
+
+            var m = parseInt(times / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            Min.innerHTML = m;
+
+            var s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            S.innerHTML = s;
+
+        }
+
+
+    </script>
+</body>
+
+</html>
