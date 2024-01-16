@@ -1,0 +1,19 @@
+<!-- 轮播部分 -->
+    <div class="big">
+        <!-- 滚动区域 -->
+        <div class="img_w">
+            <ul>
+                <li><img src="./images/school3.jpg" alt=""></li>
+                <li><img src="./images/office.jpg" alt=""></li>
+                <li><img src="./images/hotel.jpg" alt=""></li>
+            </ul>
+
+            <!-- 左箭头 -->
+            <a href="javascript:;" class="left"> < </a>
+            <!-- 右箭头 -->
+            <a href="javascript:;" class="right"> > </a>
+            <!-- 底部小圆点 -->
+            <ol class="circle">
+            </ol>
+        </div>
+    </div>
